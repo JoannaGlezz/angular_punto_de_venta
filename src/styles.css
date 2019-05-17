@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url(./images/wheat.png);
+    opacity: 0.9 ;
+}
+
+.register{
+    height: 400%;
+    /* width: 100%; */
+    font-size: 350%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid black;
+}
+
+a{
+    color: moccasin;;
+}
+
+.padd{
+    margin-top: 15px;
+}
+
+h2{
+    color: white;
+    font-size: 200%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* #form{
+    display: block;
+    align-content: center;
+} */
+
+.campos{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 120%;
+}

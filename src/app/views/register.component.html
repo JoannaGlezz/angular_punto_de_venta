@@ -1,0 +1,36 @@
+
+<form action="" class="registroNuevo" id="form">
+
+        <h2>Register</h2>
+
+    <div class="space">
+        <div>
+            <label class="campos">Name:</label> <br>
+            <input type="text" name="name">
+        </div> <br>
+
+        <div>
+            <label class="campos">Last Name:</label> <br>
+            <input type="text" name="lastName">
+        </div> <br>
+
+        <div>
+            <label class="campos">User name:</label> <br>
+            <input type="text" [(ngModel)]="user1" name="user1">
+        </div> <br>
+
+        <div>
+            <label class="campos">Password:</label> <br>
+            <input type="password" [(ngModel)]="password1" name="pass1">
+        </div> <br>
+
+        <div>
+            <label class="campos">Confirm Password:</label> <br>
+            <input type="password" [(ngModel)]="password2" name="pass2">
+        </div>
+    </div>
+    <br>
+    <button type="submit" (click)="register()" value="submit">Register
+
+    </button>
+</form>

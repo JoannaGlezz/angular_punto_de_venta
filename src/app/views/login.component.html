@@ -1,0 +1,17 @@
+<form class="padd" id="form">
+
+        <h2>Login</h2>
+
+    <div>
+        <label class="campos">User:</label> <br>
+        <input type="text" [(ngModel)]="user" name="user">
+    </div>
+    <br>
+    <div>
+        <label class="campos">Password:</label> <br>
+        <input type="password" [(ngModel)]="password" name="pass">
+    </div>
+    <br>
+    <button type="submit" (click)="authenticate()">Enviar</button>
+
+</form>
