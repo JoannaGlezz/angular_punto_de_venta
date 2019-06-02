@@ -1,17 +1,50 @@
-<form class="padd" id="form">
+<!DOCTYPE html>
+<html lang="en">
 
-        <h2>Login</h2>
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
 
-    <div>
-        <label class="campos">User:</label> <br>
-        <input type="text" [(ngModel)]="user" name="user">
+<body>
+
+
+    <div class="container">
+        <form action="/action_page.php" class="was-validated">
+            
+
+            <div class="form-group">
+                <label for="uname">User:</label>
+                <input [(ngModel)]="user" type="text" class="form-control" id="uname"
+                    name="uname" required>
+                <div class="valid-feedback">Valid.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="uname">Email:</label>
+                <input [(ngModel)]="email" type="text" class="form-control" 
+                    name="uname" required>
+                <div class="valid-feedback">Valid.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input [(ngModel)]="password" type="password" class="form-control" id="pwd" 
+                    name="pswd" required>
+                <div class="valid-feedback">Valid.</div>
+            </div>
+
+            <button type="submit" (click)="log()" class="btn btn-primary">Submit</button>
+                <!-- {{message}} -->
+            
+        </form>
     </div>
-    <br>
-    <div>
-        <label class="campos">Password:</label> <br>
-        <input type="password" [(ngModel)]="password" name="pass">
-    </div>
-    <br>
-    <button type="submit" (click)="authenticate()">Enviar</button>
 
-</form>
+</body>
+
+</html>
