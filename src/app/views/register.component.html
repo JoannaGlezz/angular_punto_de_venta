@@ -17,8 +17,8 @@
 
     <div class="container">
         <form action="/action_page.php" class="was-validated">
+            
             <div class="form-group">
-                
                 <label for="uname">Name:</label>
                 <input [(ngModel)]="name" type="text" class="form-control"
                     name="uname" required>
@@ -26,37 +26,32 @@
             </div>
 
             <div class="form-group">
-                <label for="uname">Las Name:</label>
-                <input [(ngModel)]="lastName" type="text" class="form-control"
-                    name="uname" required>
+                <label for="uname">Last Name:</label>
+                <input [(ngModel)]="lastName" type="text" class="form-control" name="lastName" required>
                 <div class="valid-feedback">Valid.</div>
             </div>
 
             <div class="form-group">
                 <label for="uname">User:</label>
-                <input [(ngModel)]="user" type="text" class="form-control" id="uname"
-                    name="uname" required>
+                <input [(ngModel)]="user" type="text" class="form-control" id="uname" name="user" required>
                 <div class="valid-feedback">Valid.</div>
             </div>
 
             <div class="form-group">
                 <label for="uname">Email:</label>
-                <input [(ngModel)]="email" type="text" class="form-control" 
-                    name="uname" required>
+                <input [(ngModel)]="email" type="text" class="form-control" name="email" required>
                 <div class="valid-feedback">Valid.</div>
             </div>
 
             <div class="form-group">
                 <label for="pwd">Password:</label>
-                <input [(ngModel)]="password" type="password" class="form-control" id="pwd" 
-                    name="pswd" required>
+                <input [(ngModel)]="password" type="password" class="form-control" id="pwd" name="password" required>
                 <div class="valid-feedback">Valid.</div>
             </div>
 
             <div class="form-group">
                 <label for="uname">Confirm Password:</label>
-                <input [(ngModel)]="confirmPassword" type="password" class="form-control"
-                    name="uname" required>
+                <input [(ngModel)]="confirmPassword" type="password" class="form-control" name="confirmPassword" required>
                 <div class="valid-feedback">Valid.</div>
             </div>
 
@@ -68,7 +63,7 @@
                 </label>
             </div> -->
 
-            <button type="submit" (click)="register()" class="btn btn-primary">Submit</button>
+            <button type="submit" (click)="register()" class="btn btn-primary">Registrar</button>
                 {{message}}
             
         </form>

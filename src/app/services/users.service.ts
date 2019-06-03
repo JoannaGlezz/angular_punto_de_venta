@@ -8,66 +8,88 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 
-export class UserService{
-    private url:string;
-    private port:string;
-   
-    constructor(private _http:Http){
-      this.url = '/api';
-    }
+export class UserService {
+  private url: string;
+  private port: string;
 
-    loginUser(payload:any){
-      let headers: Headers = new Headers();
-      this.url += '/login/user/'; //CONEXION CON EL URL QUE ES EL HTTP Y EL PATH QEU AGREGAMOS PARA ESTA PAGINA
-   
-      headers.append('Content-Type', 'application/json');
-      //
-   
-      return this._http.post(this.url, payload, {headers: headers})
-        .pipe(
-          map(
-            res=>{
-              const data = res.text() ? res.json() : [{}];
-   
-              return data;
-            }
-          )
+  constructor(private _http: Http) {
+    this.url = '/api';
+  };
+
+  loginUser(payload: any) {
+    let headers: Headers = new Headers();
+    const url = this.url + '/login/user/'; //CONEXION CON EL URL QUE ES EL HTTP Y EL PATH QEU AGREGAMOS PARA ESTA PAGINA
+
+    headers.append('Content-Type', 'application/json');
+    //
+
+    return this._http.post(url, payload, { headers: headers })
+      .pipe(
+        map(
+          res => {
+            const data = res.text() ? res.json() : [{}];
+
+            return data;
+          }
         )
-    }
-   
-    registerUser(payload:any){
-      let headers: Headers = new Headers();
-      this.url += '/register/user/'; //CONEXION CON EL URL QUE ES EL HTTP Y EL PATH QEU AGREGAMOS PARA ESTA PAGINA
-   
-      headers.append('Content-Type', 'application/json');
-      //
-   
-      return this._http.post(this.url, payload, {headers: headers})
-        .pipe(
-          map(
-            res=>{
-              const data = res.text() ? res.json() : [{}];
-   
-              return data;
-            }
-          )
+      )
+  };
+
+  //FUNCION REGISRTER USER
+  registerUser(payload: any) {
+    let headers: Headers = new Headers();
+    const url = this.url + '/register/user/'; //CONEXION CON EL URL QUE ES EL HTTP Y EL PATH QEU AGREGAMOS PARA ESTA PAGINA
+
+    headers.append('Content-Type', 'application/json');
+    //
+
+    return this._http.post(url, payload, { headers: headers })
+      .pipe(
+        map(
+          res => {
+            const data = res.text() ? res.json() : [{}];
+
+            return data;
+          }
         )
-    }
-    deleteUser(payload:any){
-      let headers: Headers = new Headers();
-      this.url += '/delete/user';
-   
-      headers.append('Content-Type', 'application/json');
-   
-      return this._http.post(this.url, payload, {headers: headers})
-        .pipe(
-          map(
-            res=>{
-              const data = res.text() ? res.json() : [{}];
-   
-              return data;
-            }
-          )
+      )
+  };
+
+  //FUNCION PARA NO DUPLICAR USUARIOS
+  findUser(payload: any){
+    let headers: Headers = new Headers()
+    const url = this.url + '/find/user/' //USE LA MISMA URL DEL SERIVICO CREADO
+
+    return this._http.post(url, payload, { headers: headers })
+      .pipe(
+        map(
+          res => {
+            const data = res.text() ? res.json() : [{}]
+
+            return data
+          }
         )
-    }
-   }
+      )
+  };
+
+
+  //FUNCION DELETE USER
+  deleteUser(payload: any) {
+    let headers: Headers = new Headers();
+    const url = this.url + '/delete/user/';
+
+    headers.append('Content-Type', 'application/json');
+
+    return this._http.post(url, payload, { headers: headers })
+      .pipe(
+        map(
+          res => {
+            const data = res.text() ? res.json() : [{}];
+
+            return data;
+          }
+        )
+      )
+  };
+
+}

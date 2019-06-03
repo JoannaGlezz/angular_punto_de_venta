@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from '../components/login.component';
 import { BannerComponent } from '../components/banner.component';
 import { RegisterComponent } from '../components/register.component';
+import { DeleteComponent } from '../components/delete.component';
+import { PrincipalComponent} from '../components/principal';
+import { from } from 'rxjs';
 
 
 @NgModule({
@@ -15,7 +18,9 @@ import { RegisterComponent } from '../components/register.component';
     AppComponent,
     LoginComponent,
     BannerComponent,
-    RegisterComponent
+    RegisterComponent,
+    DeleteComponent,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,
