@@ -40,6 +40,7 @@ export class RegisterComponent {
         //VALIDACION PARA NO DUPLICAR USUARIOS
         payload.user = this.user
         payload.email = this.email
+        
         new Promise((resolve, reject) => {
             this._userService.findUser(payload).subscribe(response => {
                 if (response.message == null) {
@@ -51,7 +52,9 @@ export class RegisterComponent {
                 console.log('Ocurrio un error en registerUser', error)
                 reject(error)
             })
-        }).then(res => {
+        })
+        
+        .then(res => {
 
             //VALIDACION DE CONFIRMACION DE PASSWORD
             if (this.password != this.confirmPassword) {
@@ -70,22 +73,26 @@ export class RegisterComponent {
             //ACCEDIENDO AL SERVICIO
             this._userService.registerUser(payload).subscribe(data => {
                 if (data) {
-                    this.message = 'Registro Exitoso'
+                    // this.message = 'Registro Exitoso'
                     this.name = ''
                     this.lastName = ''
                     this.user = ''
                     this.email = ''
                     this.password = ''
                     this.confirmPassword = ''
+
+                    alert("Registro Exitoso!")
                 }
             }, err => {
                 console.log(err)
             })
 
-        }).catch(error => {
+        }
+        
+        ).catch(error => {
             console.log('Error en registerUser', error)
             this.message = error
-        })
+        } )
 
 
 

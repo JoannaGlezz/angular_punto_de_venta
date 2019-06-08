@@ -10,6 +10,8 @@ import { BannerComponent } from '../components/banner.component';
 import { RegisterComponent } from '../components/register.component';
 import { DeleteComponent } from '../components/delete.component';
 import { PrincipalComponent} from '../components/principal';
+import { ArticComponent } from '../components/alta.producto.componet';
+import { DeleteProductComponent } from '../components/deleteProduct';
 import { from } from 'rxjs';
 
 
@@ -20,7 +22,9 @@ import { from } from 'rxjs';
     BannerComponent,
     RegisterComponent,
     DeleteComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    ArticComponent,
+    DeleteProductComponent
   ],
   imports: [
     BrowserModule,

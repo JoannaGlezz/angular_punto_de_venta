@@ -1,0 +1,68 @@
+<h3>Crear articulo</h3>
+
+<div class="container">
+
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+    <div class="panel-heading"> </div>
+            
+        <div class="panel-body">
+            <form method="post" action=".">
+            <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S'/>
+
+            <form class="form-horizontal" method="post">
+                <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S'/>
+
+
+                    <div id="div_id_username" class="form-group required">
+                        <label for="id_username" class="control-label col-md-4  requiredField"> SKU</label>
+                        <div class="controls col-md-8 ">
+                        <input class="input-md  textinput textInput form-control" id="id_username" maxlength="30" [(ngModel)]="sku" name="sku" 
+                                    style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+
+                    <div id="div_id_email" class="form-group required">
+                        <label for="id_email" class="control-label col-md-4  requiredField"> Articulo Nuevo</label>
+                        <div class="controls col-md-8 ">
+                        <input class="input-md emailinput form-control" id="id_email" [(ngModel)]="articuloN" name="articuloN" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+
+                    <div id="div_id_password1" class="form-group required">
+                        <label for="id_password1" class="control-label col-md-4  requiredField">$ Costo</label>
+                        <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1"
+                                    [(ngModel)]="costo" name="costo" style="margin-bottom: 10px" type="text" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Categoria</label>
+                        <select class="form-control"  [(ngModel)]="categoria" name="categoria" style="margin-bottom: 10px">
+                            <option>Dama</option>
+                            <option>Caballero</option>
+                              <!-- <option>3</option>
+                              <option>4</option>
+                              <option>5</option> -->
+                        </select>
+                    </div>
+
+                    <div id="div_id_catagory" class="form-group required">
+                        <label for="id_catagory" class="control-label col-md-4 requiredField">Detalles </label>
+                        <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" [(ngModel)]="detalles" name="detalles" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+
+
+                        <div class="form-group">
+                            <button type="submit" (click)="alta()" class="btn btn-primary">Registrar</button>
+                        </div>
+
+            </form>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

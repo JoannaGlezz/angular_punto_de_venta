@@ -1,17 +1,62 @@
 import { Component } from "@angular/core";
+import { UserService } from "../services/users.service";
+import { Router } from '@angular/router';//importamos clase router para usarla en el constructor y despues en la funcion  en forma de objeto this
 
-@Component ({
-    selector:'login',
-    templateUrl:"../views/login.component.html"
+
+@Component({
+    selector: 'login',
+    templateUrl: "../views/login.component.html",
+    providers: [UserService]
 })
 
 export class LoginComponent {
-    user:string;
-    password:string;
+    email: string;
+    password: string;
+    message: string;
 
-    authenticate(){
-        console.log('user:' + this.user);
-        console.log('password:' + this.password)
+    constructor(private _userService: UserService, private router: Router) { //PRIVATE LIMITA A ESTA CLASE 
+
+        this.email = ''
+        this.password = ''
+    }
+
+    login() {
+        let payload: any = {};
+
+        if (this.email == '' && this.password == '') {
+            this.message = ("No se llenaron todos los campos")
+            return
+        }
+
+
+
+
+        payload.email = this.email
+        payload.password = this.password
+
+        new Promise((resolve, reject) => {
+            this._userService.loginUser(payload).subscribe(
+                
+                //nuevo forma de declaracion de la funcion function
+                
+                response => {
+                    // console.log(response)
+                    if (response.message == null) {
+                        reject("Datos incorrectos")
+                    } else {
+                        resolve('Bienvenido')
+                    }
+
+                }
+                , error => {
+                    console.log('El servidor de backend fallo', error)
+                    reject(error)
+                })
+        }).then(res => {
+            this.router.navigateByUrl("altaP")
+        }).catch(mensajeError => {
+            this.message = mensajeError
+        })
 
     }
 }

@@ -55,7 +55,7 @@ export class UserService {
       )
   };
 
-  //FUNCION PARA NO DUPLICAR USUARIOS
+  //FUNCION LOGUEAR USUARIOS
   findUser(payload: any){
     let headers: Headers = new Headers()
     const url = this.url + '/find/user/' //USE LA MISMA URL DEL SERIVICO CREADO
@@ -91,5 +91,42 @@ export class UserService {
         )
       )
   };
+
+  //FUNCION REGITRAR NUEVO ARTICULO
+  new_Article(payload: any) {
+    let headers: Headers = new Headers();
+    const url = this.url + '/new_article/'; 
+    headers.append('Content-Type', 'application/json');
+    return this._http.post(url, payload, { headers: headers })
+      .pipe(
+        map(
+          res => {
+            const data = res.text() ? res.json() : [{}];
+
+            return data;
+          }
+        )
+      )
+  };
+
+  //FUNCION DELETE PRODUCT
+  deleteProduct(payload: any) {
+    let headers: Headers = new Headers();
+    const url = this.url + '/delete/product/';
+
+    headers.append('Content-Type', 'application/json');
+
+    return this._http.post(url, payload, { headers: headers })
+      .pipe(
+        map(
+          res => {
+            const data = res.text() ? res.json() : [{}];
+
+            return data;
+          }
+        )
+      )
+  };
+
 
 }

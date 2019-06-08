@@ -1,0 +1,15 @@
+<div class="container">
+    <form  class="was-validated">
+
+        <div class="form-group">
+            <label for="uname">SKU:</label>
+            <input [(ngModel)]="sku" name="mail.user" autocomplete="off" type="text" class="form-control" required >
+            <div class="valid-feedback">Valid.</div>
+        </div>
+
+        <!-- LA FUNCION DE MI BOTON ES LA QUE ESTA RECIBIENDO ENSEGUIDA DEL CONSTRUCTOR  -->
+        <button (click)="deleteProduct()" class="btn btn-primary">Entrar</button>
+            {{message}}
+        
+    </form>
+</div>
