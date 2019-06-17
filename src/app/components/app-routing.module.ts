@@ -6,6 +6,9 @@ import { DeleteComponent } from './delete.component';
 import { PrincipalComponent } from './principal';
 import { ArticComponent } from './alta.producto.componet';
 import { DeleteProductComponent } from './deleteProduct';
+import{ UsuariosComponent } from './usuarios.component';
+import { ReportComponent } from '../components/report.component';
+
 import { from } from 'rxjs';
 
 const routes: Routes = [//RUTAS QUE VAN A IR EN EL NAVEGADOR, 
@@ -14,7 +17,9 @@ const routes: Routes = [//RUTAS QUE VAN A IR EN EL NAVEGADOR,
   {path:'register', component: RegisterComponent},
   {path: 'delete', component: DeleteComponent},
   {path: 'altaP', component: ArticComponent},
-  {path: 'deleteProduct', component: DeleteProductComponent}
+  {path: 'deleteProduct', component: DeleteProductComponent},
+  {path: 'usuarios', component: UsuariosComponent},
+  {path: 'report', component: ReportComponent}
 
 ];
 

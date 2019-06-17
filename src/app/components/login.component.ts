@@ -20,7 +20,7 @@ export class LoginComponent {
         this.password = ''
     }
 
-    login() {
+    login() { //ESTE LOGIN ES LA FUNCION DEL BOTON CREADO EN EL HTML
         let payload: any = {};
 
         if (this.email == '' && this.password == '') {
@@ -35,7 +35,7 @@ export class LoginComponent {
         payload.password = this.password
 
         new Promise((resolve, reject) => {
-            this._userService.loginUser(payload).subscribe(
+            this._userService.loginUser(payload).subscribe( //LOGINUSER ES CONEXION CON EL URL QUE ES EL HTTP Y EL PATH QUE AGREGAMOS PARA ESTA PAGINA
                 
                 //nuevo forma de declaracion de la funcion function
                 
@@ -53,7 +53,7 @@ export class LoginComponent {
                     reject(error)
                 })
         }).then(res => {
-            this.router.navigateByUrl("altaP")
+            this.router.navigateByUrl("usuarios")
         }).catch(mensajeError => {
             this.message = mensajeError
         })

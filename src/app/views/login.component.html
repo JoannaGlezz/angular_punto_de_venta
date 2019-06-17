@@ -4,13 +4,13 @@
 
             <div class="form-group">
                 <label for="uname">Email:</label>
-                <input [(ngModel)]="email" name="mail.user" type="text" class="form-control" required>
+                <input [(ngModel)]="email" name="mail.user" autocomplete="off" type="text" class="form-control" required >
                 <div class="valid-feedback">Valid.</div>
             </div>
 
             <div class="form-group">
                 <label for="pwd">Password:</label>
-                <input [(ngModel)]="password" name="pass.user" type="password" class="form-control" id="pwd" required>
+                <input [(ngModel)]="password" name="pass.user" autocomplete="off" type="password" class="form-control" id="pwd" required>
                 <div class="valid-feedback">Valid.</div>
             </div>
 

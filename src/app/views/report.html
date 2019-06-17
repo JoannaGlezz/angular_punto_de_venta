@@ -1,0 +1,88 @@
+<h1>Filtar</h1>
+
+<label for="">
+    Nombre de producto:
+    <input type="text" [(ngModel)]="nameProduct"><br>
+</label>
+
+<label>sku:
+    <input type="text" [(ngModel)]="skuProduct"><br>
+</label>
+
+<label for="pwd" class="mr-sm-2">Rango de Fechas:
+    <input type="date" [(ngModel)]="startDate">
+    <input type="date" [(ngModel)]="endDate">
+
+</label>
+
+<button class="btn btn-outline-dark btn-sm" (click)="filterProducts()">
+    <fa name="sort"> Fil</fa>
+</button>
+
+
+<!--TABLA-->
+
+<ngx-datatable *ngIf="!loading" class="material" [limit]="10" [rows]="listProducts" [footerHeight]="50"
+    [headerHeight]="40" [rowHeight]="50">
+
+    <ngx-datatable-column name="details" [width]="70">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <button class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#productImage">
+                <fa name="download"></fa>
+            </button>
+                <!--BOTON BORRAR-->
+            <button class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#productImage" (click)="deleteOneProduct(row.sku)">
+                    <fa name="trash"></fa>
+            </button>
+
+        </ng-template>
+    </ngx-datatable-column>
+
+    <!-- <ngx-datatable-column name="Date">
+       <ng-template let-row="row" ngx-datatable-cell-template> {{row.date}} </ng-template>
+   </ngx-datatable-column> -->
+
+    <ngx-datatable-column name="Sku">
+        <ng-template let-row="row" ngx-datatable-cell-template> {{row.sku}} </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Producto">
+        <ng-template let-row="row" ngx-datatable-cell-template> {{row.producto}} </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Costo">
+        <ng-template let-row="row" ngx-datatable-cell-template> {{row.costo}} </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Categoria">
+        <ng-template let-row="row" ngx-datatable-cell-template> {{row.categoria}} </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Detalles">
+        <ng-template let-row="row" ngx-datatable-cell-template> {{row.detalles}} </ng-template>
+    </ngx-datatable-column>
+
+</ngx-datatable>
+
+
+<!-- ------------------------------- MODAL 
+
+
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                Modal body..
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+-->

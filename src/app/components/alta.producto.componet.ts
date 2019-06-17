@@ -9,17 +9,18 @@ import { reject } from 'q';
 })
 
 export class ArticComponent {
+
     sku: string;
-    name: string;
+    producto: string;
     costo: string;
     categoria: string;
     detalles: string;
     message: string;
 
-    constructor(private _userService: UserService) { //PRIVATE LIMITA A ESTA CLASE 
+    constructor(private _userService: UserService) {  
 
         this.sku = ''
-        this.name = ''
+        this.producto = ''
         this.costo = ''
         this.categoria = ''
         this.detalles = ''
@@ -27,18 +28,20 @@ export class ArticComponent {
 
     alta() {
 
+        let date = new Date();
         let payload: any = {};
 
         //validacion de los campos llenos 
-        if (this.sku == '' || this.name == '' || this.costo == '' || this.categoria == '' || this.detalles == '') {
+        if (this.sku == '' || this.producto == '' || this.costo == '' || this.categoria == '' || this.detalles == '') {
             this.message = ("No se llenaron todos los campos")
             return
         }
 
         //VALIDACION PARA NO DUPLICAR USUARIOS
-
+        
+        payload.creationDate = date
         payload.sku = this.sku
-        payload.name = this.name
+        payload.producto = this.producto
         payload.costo = this.costo
         payload.categoria = this.categoria
         payload.detalles = this.detalles
@@ -48,8 +51,9 @@ export class ArticComponent {
         this._userService.new_Article(payload).subscribe(data => {
             if (data) {
                 // this.message = 'Registro Exitoso'
+                
                 this.sku =''
-                this.name = ''
+                this.producto = ''
                 this.costo = ''
                 this.categoria = ''
                 this.detalles = ''
